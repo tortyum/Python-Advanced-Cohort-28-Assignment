@@ -39,10 +39,12 @@ def main():
     filename = 'visitors.txt'
     # Get visitor's name from user input
     name = input('Enter visitor\'s name: ').strip()
+    normalized_name = name.lower()
     try:
         # Get the last visitor from the file
         last_visitor = get_last_visitor(filename)
-        if last_visitor == name:
+        normalized_last_visitor = last_visitor.strip().lower() if last_visitor else ""
+        if normalized_last_visitor == normalized_name:
             # Raise error if duplicate
             raise DuplicateVisitorError(f"Duplicate visitor: {name}")
         add_visitor(filename, name)
