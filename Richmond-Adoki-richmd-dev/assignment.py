@@ -18,9 +18,8 @@ def get_last_entry(file):
     if not os.path.exists(file):
         return None, None
 
-    f = open(file, "r", encoding="utf-8")
-    lines = f.readlines()
-    f.close()
+    with open(file, "r", encoding="utf-8") as f:
+        lines = f.readlines()
 
     if len(lines) == 0:
         return None, None
