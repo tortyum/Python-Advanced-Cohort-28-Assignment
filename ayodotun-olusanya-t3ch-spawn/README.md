@@ -1,0 +1,2 @@
+This project logs library visitors into a text file, preventing duplicate consecutive logins and enforcing a 5-minute wait between sign-ins.  
+Files: `myLibraryLog.py` (main script), `visitors.txt` (log storage).  
