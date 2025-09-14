@@ -16,7 +16,7 @@ def get_last_visitor(filename):
             lines = f.readlines()         # Read all lines from the file
             if lines:
                 # Get the last line
-                last_line = lines[-1].strip().capitalize()
+                last_line = lines[-1].strip()
                 if last_line:
                     # Extract name before the ','
                     return last_line.split(',')[0]
