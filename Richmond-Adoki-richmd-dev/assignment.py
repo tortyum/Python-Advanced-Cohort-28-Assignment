@@ -59,7 +59,10 @@ def main():
                 last_time, "%Y-%m-%d %H:%M:%S")
             now_dt = datetime.datetime.now()
             diff = (now_dt - last_dt).total_seconds() / 60.0  # in minutes
-            if diff < 5:
+            if diff < 0:
+                # Handle negative time difference due to system clock changes
+                print("Warning: Negative time difference detected between now and last visitor timestamp. Skipping 'too soon' check.")
+            elif diff < 5:
                 raise TooSoonError(
                     f"New visitor not allowed yet. Wait {5-int(diff)} more minutes.")
 
